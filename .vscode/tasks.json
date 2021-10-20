@@ -1,0 +1,29 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "docker build . --tag ${config:tag}",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+        },
+        {
+            "label": "export for wsl",
+            "type": "shell",
+            "command": "docker run --name ${config:name} ${config:tag}; docker container export -o ./1-deploy/${config:filename} ${config:name}; docker container rm ${config:name}",
+            "problemMatcher": [],
+        },
+        {
+            "label": "test tasks",
+            "type": "shell",
+            "command": "echo ${config:tag1}",
+            "problemMatcher": [],
+        },    
+    ]
+}
