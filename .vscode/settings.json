@@ -1,6 +1,0 @@
-{
-    "name": "ubuntu-wsl",
-    "ver": "latest",
-    "tag": "${config:name}:${config:ver}",
-    "filename": "${config:name}.tar",
-}

@@ -6,7 +6,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "docker build . --tag ${config:tag}",
+            "command": "docker build -f Dockerfile_${input:target} --tag ${input:target}:latest .",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
@@ -16,14 +16,26 @@
         {
             "label": "export for wsl",
             "type": "shell",
-            "command": "docker run --name ${config:name} ${config:tag}; docker container export -o ./1-deploy/${config:filename} ${config:name}; docker container rm ${config:name}",
+            "command": "docker run --name AAA ${input:target}:latest; docker container export -o ./1-deploy/${input:target}.tar AAA; docker container rm AAA",
             "problemMatcher": [],
         },
         {
             "label": "test tasks",
             "type": "shell",
-            "command": "echo ${config:tag1}",
+            "command": "echo ${input:target}",
             "problemMatcher": [],
-        },    
+        },
+    ],
+    "inputs": [
+        {
+            "type": "pickString",
+            "id": "target",
+            "description": "target",
+            "options": [
+                "ubuntu-wsl",
+                "ubuntu-wsl-no-nat",
+            ],
+            "default": "ubuntu-wsl"
+        },
     ]
 }
