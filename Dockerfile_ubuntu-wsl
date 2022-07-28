@@ -7,7 +7,7 @@ ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update && apt-get install -y \
- nano rsync socat xz-utils \
+ nano socat xz-utils \
  iperf iperf3 iproute2 iputils-ping traceroute \
  usbutils \
  && apt-get autoclean && rm -rf /var/lib/apt/lists/*

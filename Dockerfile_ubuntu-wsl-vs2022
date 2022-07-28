@@ -1,16 +1,16 @@
 FROM ubuntu:22.10
 
 LABEL authors="Barrypp.zzx"
-LABEL description="for wsl withGCC"
+LABEL description="for wsl"
 
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update && apt-get install -y \
- nano rsync socat xz-utils zip\
- git gcc g++ gdb gdbserver \
+ nano socat xz-utils \
  iperf iperf3 iproute2 iputils-ping traceroute \
- openssh-server usbutils \
+ usbutils \
+ g++ gdb make ninja-build rsync zip \
  && apt-get autoclean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /root
