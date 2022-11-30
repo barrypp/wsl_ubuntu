@@ -33,7 +33,7 @@
             "description": "target",
             "options": [
                 "ubuntu-wsl",
-                "ubuntu-wsl-withGCC",
+                "ubuntu-wsl-vs2022",
             ],
             "default": "ubuntu-wsl"
         },
