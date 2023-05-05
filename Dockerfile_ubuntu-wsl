@@ -1,4 +1,4 @@
-FROM ubuntu:22.10
+FROM ubuntu:23.04
 
 LABEL authors="Barrypp.zzx"
 LABEL description="for wsl"
@@ -9,8 +9,8 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
  nano socat xz-utils \
- iperf iperf3 iputils-ping traceroute \
- usbutils curl lsof\
+ iperf iperf3 iputils-ping traceroute mtr-tiny iproute2 \
+ usbutils curl lsof tcpdump tcptrack iftop \
  && apt-get autoclean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /root

@@ -1,0 +1,1 @@
+docker load -i ubuntu-wsl.image.tar
