@@ -11,6 +11,7 @@ RUN apt-get update \
  nano socat xz-utils \
  iperf iperf3 iputils-ping traceroute mtr-tiny iproute2 \
  usbutils curl lsof tcpdump tcptrack iftop \
+ g++ gdb make ninja-build rsync zip \
  && apt-get autoclean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /root

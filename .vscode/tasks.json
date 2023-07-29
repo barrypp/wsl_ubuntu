@@ -38,8 +38,7 @@
             "id": "target",
             "description": "target",
             "options": [
-                "ubuntu-wsl",
-                "ubuntu-wsl-vs2022",
+                "ubuntu-wsl"
             ],
             "default": "ubuntu-wsl"
         },
