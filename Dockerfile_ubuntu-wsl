@@ -8,7 +8,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
- nano socat xz-utils \
+ nano socat xz-utils iptables \
  iperf iperf3 iputils-ping traceroute mtr-tiny iproute2 \
  usbutils curl lsof tcpdump tcptrack iftop \
  g++ gdb make ninja-build rsync zip \
