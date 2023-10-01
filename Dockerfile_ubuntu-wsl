@@ -3,15 +3,18 @@ FROM ubuntu:23.04
 LABEL authors="Barrypp.zzx"
 LABEL description="for wsl"
 
+ENV LC_ALL=C.UTF-8 LANG=C.UTF-8
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
- nano socat xz-utils iptables \
- iperf iperf3 iputils-ping traceroute mtr-tiny iproute2 \
- usbutils curl lsof tcpdump tcptrack iftop \
- g++ gdb make ninja-build rsync zip \
+ iptables lsof curl wget nano socat locales \
+ iputils-ping mtr-tiny iproute2 httping \
+ iperf iperf3 tcpdump iptraf iftop \
+ g++ gdb make ninja-build rsync \
+ xz-utils zip \
+ usbutils \
  && apt-get autoclean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /root
