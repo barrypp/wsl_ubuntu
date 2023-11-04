@@ -38,7 +38,8 @@
             "id": "target",
             "description": "target",
             "options": [
-                "ubuntu-wsl"
+                "ubuntu-wsl",
+                "fedora-wal"
             ],
             "default": "ubuntu-wsl"
         },

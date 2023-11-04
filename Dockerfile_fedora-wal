@@ -1,0 +1,17 @@
+FROM fedora:40
+
+LABEL authors="Barrypp.zzx"
+LABEL description="for wsl"
+
+ENV LC_ALL=C.UTF-8 LANG=C.UTF-8
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+RUN dnf install -y \
+    kmod iptables-services lsof wget nano socat iputils mtr httping \
+    iperf iperf3 tcpdump iptraf iftop \
+    gcc-c++ gdb make ninja-build rsync \
+    xz zip \
+    && dnf clean all && rm -rf /var/cache/dnf/*
+
+WORKDIR /root
