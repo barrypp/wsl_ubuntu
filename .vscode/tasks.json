@@ -12,17 +12,11 @@
                 "kind": "build",
                 "isDefault": true
             }
-        },
+        },      
         {
-            "label": "export image",
+            "label": "exportl",
             "type": "shell",
-            "command": "docker save -o ./1-deploy/${input:target}.image.tar ${input:target}:latest",
-            "problemMatcher": []
-        },        
-        {
-            "label": "export for wsl",
-            "type": "shell",
-            "command": "docker run --name AAA ${input:target}:latest; docker container export -o ./1-deploy/${input:target}.tar AAA; docker container rm AAA",
+            "command": "docker run --name AAA ${input:target}:latest; docker container export -o ./1-deploy/${input:target}.tar AAA; docker container rm AAA; docker save -o ./1-deploy/${input:target}.image.tar ${input:target}:latest",
             "problemMatcher": []
         },
         {
